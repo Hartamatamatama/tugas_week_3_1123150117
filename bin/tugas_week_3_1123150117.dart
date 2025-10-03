@@ -1,24 +1,21 @@
-// Class induk untuk merepresentasikan data mahasiswa
 class Mahasiswa {
-  // Properties (atribut) mahasiswa
+  // Properties (atribut)
   String nama;
   String nim;
   String jurusan;
   int angkatan;
-
-  // Constructor untuk membuat objek mahasiswa
+  // Constructor
   Mahasiswa({
     required this.nama,
     required this.nim,
     required this.jurusan,
     required this.angkatan,
   });
-
-  // Method untuk menampilkan data mahasiswa
+  // Method
   void tampilkanData() {
-    print("Nama     : $nama");
-    print("NIM      : $nim");
-    print("Jurusan  : $jurusan");
+    print("Nama : $nama");
+    print("NIM : $nim");
+    print("Jurusan : $jurusan");
     print("Angkatan : $angkatan");
   }
 }
