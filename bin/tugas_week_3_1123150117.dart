@@ -45,22 +45,29 @@ class AsistenDosen extends Mahasiswa {
   }
 }
 
+// Abstract class (interface) untuk mengatur kontrak pendaftaran mata kuliah
 abstract class Pendaftaran {
   void daftarMatkul(String matkul);
 }
 
+// Class turunan untuk mahasiswa aktif yang bisa mendaftar mata kuliah
 class MahasiswaAktif extends Mahasiswa implements Pendaftaran {
+  // List untuk menyimpan mata kuliah yang diambil
   List<String> matkulDiambil = [];
+
+  // Constructor untuk membuat objek mahasiswa aktif
   MahasiswaAktif({
     required String nama,
     required String nim,
     required String jurusan,
     required int angkatan,
   }) : super(nama: nama, nim: nim, jurusan: jurusan, angkatan: angkatan);
+
+  // Implementation method dari interface Pendaftaran
   @override
   void daftarMatkul(String matkul) {
-    matkulDiambil.add(matkul);
-    print("$nama berhasil daftar mata kuliah $matkul");
+    matkulDiambil.add(matkul); // Tambahkan ke list mata kuliah
+    print("$nama berhasil daftar mata kuliah: $matkul");
   }
 }
 
@@ -92,4 +99,28 @@ void main() {
   // Menampilkan data asisten dosen
   print("=== Data Asisten Dosen ===");
   asdos.tampilkanData();
+
+  print('\n' + '=' * 30 + '\n');
+
+  // Membuat objek mahasiswa aktif dengan implementasi interface
+  var mhsAktif = MahasiswaAktif(
+    nama: "Andi Wijaya",
+    nim: "1123150119",
+    jurusan: "Teknik Elektro",
+    angkatan: 2023,
+  );
+
+  // Menampilkan data mahasiswa aktif
+  print("=== Data Mahasiswa Aktif ===");
+  mhsAktif.tampilkanData();
+
+  print("\n--- Proses Pendaftaran Mata Kuliah ---");
+  // Mendaftarkan mata kuliah
+  mhsAktif.daftarMatkul("Algoritma dan Pemrograman");
+  mhsAktif.daftarMatkul("Basis Data");
+  mhsAktif.daftarMatkul("Jaringan Komputer");
+
+  print("\n--- Data Setelah Pendaftaran ---");
+  // Menampilkan data setelah pendaftaran
+  print("Matkul yang diambil: ${mhsAktif.matkulDiambil}");
 }
