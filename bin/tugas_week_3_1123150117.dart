@@ -49,6 +49,21 @@ abstract class Pendaftaran {
   void daftarMatkul(String matkul);
 }
 
+class MahasiswaAktif extends Mahasiswa implements Pendaftaran {
+  List<String> matkulDiambil = [];
+  MahasiswaAktif({
+    required String nama,
+    required String nim,
+    required String jurusan,
+    required int angkatan,
+  }) : super(nama: nama, nim: nim, jurusan: jurusan, angkatan: angkatan);
+  @override
+  void daftarMatkul(String matkul) {
+    matkulDiambil.add(matkul);
+    print("$nama berhasil daftar mata kuliah $matkul");
+  }
+}
+
 // Fungsi utama program
 void main() {
   // Membuat objek mahasiswa biasa
