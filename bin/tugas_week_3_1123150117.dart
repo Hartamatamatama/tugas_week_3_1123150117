@@ -45,6 +45,10 @@ class AsistenDosen extends Mahasiswa {
   }
 }
 
+abstract class Pendaftaran {
+  void daftarMatkul(String matkul);
+}
+
 // Fungsi utama program
 void main() {
   // Membuat objek mahasiswa biasa
