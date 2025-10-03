@@ -69,6 +69,15 @@ class MahasiswaAktif extends Mahasiswa implements Pendaftaran {
     matkulDiambil.add(matkul); // Tambahkan ke list mata kuliah
     print("$nama berhasil daftar mata kuliah: $matkul");
   }
+
+  // Override method tampilkanData untuk menampilkan mata kuliah yang diambil
+  @override
+  void tampilkanData() {
+    super.tampilkanData(); // Tampilkan data dasar mahasiswa
+    print(
+      "Mata Kuliah: ${matkulDiambil.isEmpty ? 'Belum ada' : matkulDiambil.join(', ')}",
+    );
+  }
 }
 
 // Fungsi utama program
@@ -122,5 +131,5 @@ void main() {
 
   print("\n--- Data Setelah Pendaftaran ---");
   // Menampilkan data setelah pendaftaran
-  print("Matkul yang diambil: ${mhsAktif.matkulDiambil}");
+  mhsAktif.tampilkanData();
 }
